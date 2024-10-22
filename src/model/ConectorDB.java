@@ -202,6 +202,75 @@ public class ConectorDB {
         }
     }
 
+    public void atualizarMatricula(String RA, String statusMatricula){
+        String query = "update `mydb`.`aluno` set `aluno`.`matricula` = ? where ra = ? ;";
+        try{
+            PreparedStatement stmt = connection.prepareCall(query);
+            stmt.setString(1, statusMatricula);
+            stmt.setString(2, RA);
+            int rowsAffected = stmt.executeUpdate();
+            if(rowsAffected == 0) JOptionPane.showMessageDialog(null, "RA não encontrado");
+            else System.out.println("Colunas Afetadas: " + rowsAffected);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void deletarAluno(String RA){
+        String query = "update `mydb`.`aluno` set `aluno`.`matricula` = 'NAO MATRICULADO' where ra = ? ;";
+        try{
+            PreparedStatement stmt = connection.prepareCall(query);
+            stmt.setString(1, RA);
+            int rowsAffected = stmt.executeUpdate();
+            if(rowsAffected == 0) JOptionPane.showMessageDialog(null, "RA não encontrado");
+            else System.out.println("Colunas Afetadas: " + rowsAffected);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void inserirCurso(String nomeCurso){
+        String query = "insert into `mydb`.`curso`(nome_curso) values ( ? );";
+        try{
+            PreparedStatement stmt = connection.prepareCall(query);
+            stmt.setString(1, nomeCurso);
+            int rowsAffected = stmt.executeUpdate();
+            System.out.println("Colunas Afetadas: " + rowsAffected);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void inserirDisciplina(String nomeDisciplina, int id){
+        String query = "insert into `mydb`.`disciplina`(nome_disciplina) values ( ? );";
+        try{
+            PreparedStatement stmt = connection.prepareCall(query);
+            stmt.setString(1, nomeDisciplina);
+            int rowsAffected = stmt.executeUpdate();
+            System.out.println("Colunas Afetadas(tabela disciplina): " + rowsAffected);
+
+            /*
+            query = "select id from `mydb`.`disciplina` where nome_disciplina = ? ;";
+            stmt = connection.prepareCall(query);
+            stmt.setString(1, nomeDisciplina);
+            ResultSet rs = stmt.executeQuery();
+            int idDisciplina = 0;
+            while(rs.next()){
+                idDisciplina = rs.getInt("ID");
+            }
+
+            query = "insert into `mydb`.`curso_turma_disciplina`(ID_curso,ID_disciplina) values ( ? , ? );";
+            stmt = connection.prepareCall(query);
+            stmt.setInt(1, id);
+            stmt.setInt(2, idDisciplina);
+            rowsAffected = stmt.executeUpdate();
+            System.out.println("Colunas Afetadas(tabela curso_turma_disciplina): " + rowsAffected);
+            */
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
     //setters
     public void setUrl(String url) {
         this.url = url;

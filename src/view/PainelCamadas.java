@@ -17,6 +17,10 @@ public class PainelCamadas extends JLayeredPane {
     private CardLayout cardLayout;
     private JComboBox<String> comboBox;
     private JButton botaoCadastrar;
+    private JButton botaoAtualizarAluno;
+    private JButton botaoDeletarAluno;
+    private JButton botaoAdicionarCurso;
+    private JButton botaoAdicionarDisciplina;
     private final int tamanhoCelula = 20;
 
     public PainelCamadas() {
@@ -42,18 +46,42 @@ public class PainelCamadas extends JLayeredPane {
         painel.add(Box.createVerticalGlue());
         painel.setBounds(0, 0, 1200, 800);
 
-        JLabel label = new JLabel("Clique aqui para cadastrar um aluno");
-        label.setAlignmentX(Component.CENTER_ALIGNMENT);
-
         botaoCadastrar = new JButton("Cadastrar Aluno");
         botaoCadastrar.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        Dimension tamanhoBotoes = new Dimension(400, 50);
+        botaoAtualizarAluno = new JButton("Atualizar Aluno");
+        botaoAtualizarAluno.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        botaoDeletarAluno = new JButton("Deletar Cadastro Aluno");
+        botaoDeletarAluno.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        botaoAdicionarCurso = new JButton("Adicionar Curso");
+        botaoAdicionarCurso.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        botaoAdicionarDisciplina = new JButton("Adicionar Disciplina");
+        botaoAdicionarDisciplina.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        Dimension tamanhoBotoes = new Dimension(200, 50);
         botaoCadastrar.setPreferredSize(tamanhoBotoes);
         botaoCadastrar.setMinimumSize(tamanhoBotoes);
+        botaoAtualizarAluno.setPreferredSize(tamanhoBotoes);
+        botaoAtualizarAluno.setMinimumSize(tamanhoBotoes);
+        botaoDeletarAluno.setPreferredSize(tamanhoBotoes);
+        botaoDeletarAluno.setMinimumSize(tamanhoBotoes);
+        botaoAdicionarCurso.setPreferredSize(tamanhoBotoes);
+        botaoAdicionarCurso.setMinimumSize(tamanhoBotoes);
+        botaoAdicionarDisciplina.setPreferredSize(tamanhoBotoes);
+        botaoAdicionarDisciplina.setMinimumSize(tamanhoBotoes);
 
-        painel.add(label);
         painel.add(botaoCadastrar);
+        painel.add(Box.createVerticalStrut(20));
+        painel.add(botaoAtualizarAluno);
+        painel.add(Box.createVerticalStrut(20));
+        painel.add(botaoDeletarAluno);
+        painel.add(Box.createVerticalStrut(20));
+        painel.add(botaoAdicionarCurso);
+        painel.add(Box.createVerticalStrut(20));
+        painel.add(botaoAdicionarDisciplina);
         painel.add(Box.createVerticalGlue());
         return painel;
     }
@@ -140,5 +168,21 @@ public class PainelCamadas extends JLayeredPane {
 
     public JButton getBotaoCadastrar() {
         return botaoCadastrar;
+    }
+
+    public JButton getBotaoAtualizarAluno() {
+        return botaoAtualizarAluno;
+    }
+
+    public JButton getBotaoDeletarAluno() {
+        return botaoDeletarAluno;
+    }
+
+    public JButton getBotaoAdicionarCurso() {
+        return botaoAdicionarCurso;
+    }
+
+    public JButton getBotaoAdicionarDisciplina() {
+        return botaoAdicionarDisciplina;
     }
 }

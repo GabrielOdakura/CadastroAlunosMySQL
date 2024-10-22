@@ -90,4 +90,19 @@ public class FramePrincipal {
     public JButton getBotaoCadastrar() {
         return painelCamadas.getBotaoCadastrar();
     }
+    public JButton getBotaoAtualizarAluno() {
+        return painelCamadas.getBotaoAtualizarAluno();
+    }
+
+    public JButton getBotaoDeletarAluno() {
+        return painelCamadas.getBotaoDeletarAluno();
+    }
+
+    public JButton getBotaoAdicionarCurso() {
+        return painelCamadas.getBotaoAdicionarCurso();
+    }
+
+    public JButton getBotaoAdicionarDisciplina() {
+        return painelCamadas.getBotaoAdicionarDisciplina();
+    }
 }

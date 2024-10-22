@@ -28,9 +28,25 @@ public class Model {
         return dados = conector.pegarTabelaDisciplinas();
     }
 
-    // Ainda não implementado 100%
+
     public void cadastrarAluno(String nome, String matricula) {
         conector.inserirAluno(gerarRA(), nome, matricula);
+    }
+
+    public void atualizarMatricula(String RA, String statusMatricula){
+        conector.atualizarMatricula(RA.toUpperCase(), statusMatricula);
+    }
+
+    public void deletarAluno(String RA){
+        conector.deletarAluno(RA.toUpperCase());
+    }
+
+    public void adicionarCurso(String nomeCurso){
+        conector.inserirCurso(nomeCurso);
+    }
+
+    public void adicionarDisciplina(String nomeDisciplina, int id){
+        conector.inserirDisciplina(nomeDisciplina,id);
     }
 
     private String gerarRA(){
