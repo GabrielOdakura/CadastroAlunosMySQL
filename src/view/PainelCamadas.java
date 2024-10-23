@@ -21,6 +21,7 @@ public class PainelCamadas extends JLayeredPane {
     private JButton botaoDeletarAluno;
     private JButton botaoAdicionarCurso;
     private JButton botaoAdicionarDisciplina;
+    private JButton botaoAdicionarTurma;
     private final int tamanhoCelula = 20;
 
     public PainelCamadas() {
@@ -61,6 +62,9 @@ public class PainelCamadas extends JLayeredPane {
         botaoAdicionarDisciplina = new JButton("Adicionar Disciplina");
         botaoAdicionarDisciplina.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        botaoAdicionarTurma = new JButton("Adicionar Turma");
+        botaoAdicionarTurma.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         Dimension tamanhoBotoes = new Dimension(200, 50);
         botaoCadastrar.setPreferredSize(tamanhoBotoes);
         botaoCadastrar.setMinimumSize(tamanhoBotoes);
@@ -72,6 +76,8 @@ public class PainelCamadas extends JLayeredPane {
         botaoAdicionarCurso.setMinimumSize(tamanhoBotoes);
         botaoAdicionarDisciplina.setPreferredSize(tamanhoBotoes);
         botaoAdicionarDisciplina.setMinimumSize(tamanhoBotoes);
+        botaoAdicionarTurma.setPreferredSize(tamanhoBotoes);
+        botaoAdicionarTurma.setMinimumSize(tamanhoBotoes);
 
         painel.add(botaoCadastrar);
         painel.add(Box.createVerticalStrut(20));
@@ -82,6 +88,8 @@ public class PainelCamadas extends JLayeredPane {
         painel.add(botaoAdicionarCurso);
         painel.add(Box.createVerticalStrut(20));
         painel.add(botaoAdicionarDisciplina);
+        painel.add(Box.createVerticalStrut(20));
+        painel.add(botaoAdicionarTurma);
         painel.add(Box.createVerticalGlue());
         return painel;
     }
@@ -184,5 +192,9 @@ public class PainelCamadas extends JLayeredPane {
 
     public JButton getBotaoAdicionarDisciplina() {
         return botaoAdicionarDisciplina;
+    }
+
+    public JButton getBotaoAdicionarTurma() {
+        return botaoAdicionarTurma;
     }
 }

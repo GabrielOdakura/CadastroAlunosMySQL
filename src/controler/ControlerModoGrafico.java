@@ -199,13 +199,14 @@ public class ControlerModoGrafico {
     private void setarBotoesExtras(){
         JButton botaoAdicionarCurso = frame.getBotaoAdicionarCurso();
         JButton botaoAdicionarDisciplina = frame.getBotaoAdicionarDisciplina();
+        JButton botaoAdicionarTurma = frame.getBotaoAdicionarTurma();
 
         botaoAdicionarCurso.addActionListener(e ->{
             boolean cancelar = false;
             boolean sairLoop = false;
 
             String curso = "";
-            while(!sairLoop) {
+            while(!sairLoop) { //loop para ver se as informações entradas foram corretas ou cancelar operação
                 curso = JOptionPane.showInputDialog("Digite o nome do curso a inserir");
 
                 if (curso == null) {
@@ -224,7 +225,7 @@ public class ControlerModoGrafico {
             boolean sairLoop = false;
 
             String disciplina = "";
-            while(!sairLoop) {
+            while(!sairLoop) {//loop para ver se as informações entradas foram corretas ou cancelar operação
                 disciplina = JOptionPane.showInputDialog("Digite o nome do curso a inserir");
 
                 if (disciplina == null) {
@@ -289,6 +290,10 @@ public class ControlerModoGrafico {
                     }
                 }
             }
+        });
+
+        botaoAdicionarTurma.addActionListener(e ->{
+            //aqui Pedro Marques
         });
     }
 

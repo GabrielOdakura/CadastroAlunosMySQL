@@ -105,4 +105,8 @@ public class FramePrincipal {
     public JButton getBotaoAdicionarDisciplina() {
         return painelCamadas.getBotaoAdicionarDisciplina();
     }
+
+    public JButton getBotaoAdicionarTurma() {
+        return painelCamadas.getBotaoAdicionarTurma();
+    }
 }
