@@ -137,7 +137,7 @@ public class PainelCamadas extends JLayeredPane {
         painel.setLayout(new FlowLayout());
 
         JLabel labelTabelas = new JLabel("Tabela");
-        comboBox = new JComboBox<>(new String[]{"Alunos", "Cursos", "Disciplinas"});
+        comboBox = new JComboBox<>(new String[]{"Alunos", "Cursos", "Disciplinas", "turmas" });
 
         painel.add(labelTabelas);
         painel.add(comboBox);

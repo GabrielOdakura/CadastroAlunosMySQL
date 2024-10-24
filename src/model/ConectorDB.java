@@ -116,6 +116,43 @@ public class ConectorDB {
         return new DadosTabela(vectorDados,vectorNomeColunas);
     }
 
+    public DadosTabela pegarTabelaTurmas(){
+        Vector<Vector<Object>> vectorDados = new Vector<>();
+        Vector<String> vectorNomeColunas = new Vector<>();
+        String query = "describe `mydb`.`turma`;";
+
+        try{
+            PreparedStatement stmt = connection.prepareCall(query);
+            ResultSet rs = stmt.executeQuery();
+
+            ArrayList<String> temp = new ArrayList<>();
+
+            //pega dinamicamente todos os campos que serão escolhidos
+            while (rs.next()) {
+                temp.add(rs.getString("Field"));
+            }
+
+            vectorNomeColunas = new Vector<>(temp);
+
+            query = "select * from `mydb`.`turma`;";
+            stmt = connection.prepareCall(query);
+            rs = stmt.executeQuery();
+
+            // adiciona os dados de cada coluna 1 por 1 e passa pra prox coluna
+            while(rs.next()){
+                Vector<Object> vectorColuna = new Vector<>();
+                for (String col: temp){
+                    vectorColuna.add(rs.getObject(col));
+                }
+                vectorDados.add(vectorColuna);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return new DadosTabela(vectorDados,vectorNomeColunas);
+    }
+
     public DadosTabela pegarTabelaCursos(){
         Vector<Vector<Object>> vectorDados = new Vector<>();
         Vector<String> vectorNomeColunas = new Vector<>();
@@ -224,6 +261,19 @@ public class ConectorDB {
             int rowsAffected = stmt.executeUpdate();
             if(rowsAffected == 0) JOptionPane.showMessageDialog(null, "RA não encontrado");
             else System.out.println("Colunas Afetadas: " + rowsAffected);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void inserirTurma(String nomeTurma, int id){
+        String query = "insert into `mydb`.`turma`(nome_turma, ID_curso ) values ( ? , ? );";
+        try{
+            PreparedStatement stmt = connection.prepareCall(query);
+            stmt.setString(1, nomeTurma);
+            stmt.setInt(2, id);
+            int rowsAffected = stmt.executeUpdate();
+            System.out.println("Colunas Afetadas: " + rowsAffected);
         }catch(SQLException e){
             e.printStackTrace();
         }

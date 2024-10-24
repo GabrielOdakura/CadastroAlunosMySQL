@@ -28,6 +28,8 @@ public class Model {
         return dados = conector.pegarTabelaDisciplinas();
     }
 
+    public DadosTabela pegarTabelaTurmas() {return dados = conector.pegarTabelaTurmas();}
+
 
     public void cadastrarAluno(String nome, String matricula) {
         conector.inserirAluno(gerarRA(), nome, matricula);
@@ -44,7 +46,10 @@ public class Model {
     public void adicionarCurso(String nomeCurso){
         conector.inserirCurso(nomeCurso);
     }
+    public void adicionarTurma(String nomeTurma,int id){
+        conector.inserirTurma(nomeTurma, id);
 
+    }
     public void adicionarDisciplina(String nomeDisciplina, int id){
         conector.inserirDisciplina(nomeDisciplina,id);
     }
